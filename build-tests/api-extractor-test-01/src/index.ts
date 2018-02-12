@@ -96,3 +96,5 @@ export {
   DefaultExportEdgeCase,
   default as ClassExportedAsDefault
 } from './DefaultExportEdgeCase';
+
+export { AmbientNameConflict as Event } from './AmbientNameConflict';

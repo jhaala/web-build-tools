@@ -91,6 +91,20 @@ export declare class DefaultExportEdgeCase {
     reference: ClassExportedAsDefault;
 }
 
+/**
+ * When exported, this class will be called "Event" which conflicts with the browser's
+ * ambient "Event" type.
+ * @public
+ */
+export declare class Event<T> {
+    /**
+     * This function returns the browser's ambient "Event" class.  If the containing class
+     * is renamed to Event, then there will be an error here:
+     * Generic type 'Event<T>' requires 1 type argument(s)
+     */
+    getAmbientEvent(): Event;
+}
+
 /** @public */
 export declare class ForgottenExportConsumer1 {
     test1(): IForgottenExport | undefined;

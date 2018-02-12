@@ -39,6 +39,11 @@ class DefaultExportEdgeCase {
   reference: ClassExportedAsDefault;
 }
 
+// @public
+class Event<T> {
+  getAmbientEvent(): Event;
+}
+
 // @public (undocumented)
 class ForgottenExportConsumer1 {
   // WARNING: The type "IForgottenExport" needs to be exported by the package (e.g. added to index.ts)
