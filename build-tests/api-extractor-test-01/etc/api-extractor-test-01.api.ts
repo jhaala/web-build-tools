@@ -63,6 +63,13 @@ class ForgottenExportConsumer2 {
   test2(): IForgottenExport | undefined;
 }
 
+// @public (undocumented)
+class ForgottenExportConsumer3 {
+  // WARNING: The type "NamespaceWithForgottenExport.ForgottenExportClass" needs to be exported by the package (e.g. added to index.ts)
+  // (undocumented)
+  test3(): NamespaceWithForgottenExport.ForgottenExportClass | undefined;
+}
+
 // @public
 interface IInterfaceAsDefaultExport {
   member: string;

@@ -103,6 +103,11 @@ export declare class ForgottenExportConsumer2 {
     test2(): IForgottenExport_2 | undefined;
 }
 
+/** @public */
+export declare class ForgottenExportConsumer3 {
+    test3(): NamespaceWithForgottenExport.ForgottenExportClass | undefined;
+}
+
 /**
  * The ForgottenExportConsumer1 class relies on this IForgottenExport.
  *
@@ -138,6 +143,14 @@ export declare interface IInterfaceAsDefaultExport {
  * @public
  */
 export declare interface ISimpleInterface {
+}
+
+/**
+ * The ForgottenExportConsumer3 class relies on the nested ForgottenExportClass.
+ */
+declare namespace NamespaceWithForgottenExport {
+    declare class ForgottenExportClass {
+    }
 }
 
 /**
