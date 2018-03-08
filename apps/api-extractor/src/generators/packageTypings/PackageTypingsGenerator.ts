@@ -13,6 +13,7 @@ import { Span } from '../../utils/Span';
 import { Entry, EntryRole } from './Entry';
 import { ReleaseTag } from '../../aedoc/ReleaseTag';
 import { EntryTable } from './EntryTable';
+import { AstSymbolTable } from './AstSymbolTable';
 
 /**
  * Used with PackageTypingsGenerator.writeTypingsFile()
@@ -43,17 +44,21 @@ export class PackageTypingsGenerator {
   private _context: ExtractorContext;
   private _typeChecker: ts.TypeChecker;
   private _entryTable: EntryTable;
+  private _astSymbolTable: AstSymbolTable;
 
   public constructor(context: ExtractorContext) {
     this._context = context;
     this._typeChecker = context.typeChecker;
     this._entryTable = new EntryTable(this._context.typeChecker);
+    this._astSymbolTable = new AstSymbolTable(this._context.typeChecker);
   }
 
   /**
    * Perform the analysis.  This must be called before writeTypingsFile().
    */
   public analyze(): void {
+    this._astSymbolTable.analyzeEntryPoint(this._context.package.getDeclaration().getSourceFile());
+
     const packageSymbol: ts.Symbol = this._context.package.getDeclarationSymbol();
     this._entryTable.analyze(packageSymbol);
   }
